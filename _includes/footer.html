@@ -3,7 +3,9 @@
     <p>&copy; {{ site.title }} {{ site.time | date: '%Y' }}</p>
     <p>
       {% if site.twitterUsername %}<a href="https://twitter.com/{{ site.twitterUsername }}">Twitter</a>{% endif %}
-      {% if site.githubUsername %}<a href="https://github.com/{{ site.githubUsername }}">Github</a>{% endif %}
+      {% if site.linkedInUsername %}<a href="https://www.linkedin.com/in/{{ site.linkedInUsername }}">LinkedIn</a>{% endif %}
+      {% if site.stackOverflowUsername %}<a href="https://stackoverflow.com/users/{{ site.stackOverflowUsername }}">Stack Overflow</a>{% endif %}
+      {% if site.githubUsername %}<a href="https://github.com/{{ site.githubUsername }}">GitHub</a>{% endif %}
       {% if site.dribbbleUsername %}<a href="https://dribbble.com/{{ site.dribbbleUsername }}">Dribbble</a>{% endif %}
       {% if site.codepenUsername %}<a href="http://codepen.io/{{ site.codepenUsername }}">CodePen</a>{% endif %}
     </p>
