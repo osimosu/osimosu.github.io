@@ -21,7 +21,7 @@ In future posts, I'd describe how to implement passwordless authentication and t
 # Introduction
 
 YesID enables you to easily and quickly implement multi-factor, passwordless authentication and transaction signing in
-your application using biometrics. Unlike competing solutions relying on closed protocols and implementations, it is
+your application using biometrics. Unlike similar solutions relying on closed protocols and implementations, YesID is
 based on the [OAuth 2.0](https://datatracker.ietf.org/doc/html/rfc6749){:target="_blank"}
 , [OpenID Connect](https://openid.net/specs/openid-connect-core-1_0.html){:target="_blank"}
 and [CIBA](https://openid.net/specs/openid-client-initiated-backchannel-authentication-core-1_0.html){:target="_blank"}
@@ -32,11 +32,11 @@ currently considered the most bulletproof form of MFA).
 
 For those familiar with [BankID](https://www.bankid.com/){:target="_blank"}, YesID is essentially your own private
 authentication embedded in your mobile app for seamless user experience. The solution is API-based so you have complete
-flexibilty on how you design the authentication prompt in your app or the kind of requests you prompt users to
+flexibility on how you design the authentication prompt in your app or the kind of requests you prompt users to
 authorize. A major drawback with using BankID (as a form of MFA) is its reliance on Swedish social security numbers (
-which could be seen as discriminatory) which means it cannot be deployed globally.
+which could be seen as discriminatory) which means it cannot be deployed globally. Also, you need two apps instead of one!
 
-During user enrollment, cryptographic keys (optionally protected by biometrics) are generated and used to authorize
+During user enrollment, cryptographic keys (optionally locked by biometrics) are generated and used to authorize
 requests. Private user data never leaves your servers and sensitive information, such as users' biometrics never leaves
 their device enabling GDPR compliance.
 
@@ -100,7 +100,7 @@ Below is a simplified diagram of how YesID enables multi-factor Authentication.
    user identifier. YesID's private endpoints are protected
    using [Oauth 2.0 Client Authentication methods](https://darutk.medium.com/oauth-2-0-client-authentication-4b5f929305d4){:target="_blank"}
    . A transaction ID (auth_req_id) with polling interval and expiration date is returned in the response to the client
-   i.e the browser. YesID also supports `PING` mode whereby your backend is notified via a callback when the user has
+   i.e your backend, then passed to the browser. YesID also supports `PING` mode whereby your backend is notified via a callback when the user has
    acted on the request.
 
 2. The client uses the transaction ID (auth_req_id) to check the status of the Authentication request. If approved, a
@@ -525,7 +525,7 @@ public class ConsentDialog extends BottomSheetDialogFragment {
 
 ```
 
-If they cryptographic keys are not protected by biometrics (i.e users are not prompted for biometric authentication when
+If they cryptographic keys are not locked by biometrics (i.e users are not prompted for biometric authentication when
 they approve an Authentication request), you can initialize a Signature directly as shown in the `KeyStoreUtil` class.
 
 That's it! Although this tutorial is quite high level, the actual implementation took about a day.

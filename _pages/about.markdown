@@ -19,6 +19,5 @@ permalink: /about/
   finally code that is running in production.
 
 * My passion for Security was recently rekindled, and I've been implementing parts of
-  the [OAuth 2.0](https://datatracker.ietf.org/doc/html/rfc6749){:target="_blank"}
-  and [OpenID Connect](https://openid.net/specs/openid-connect-core-1_0.html){:target="_blank"}
-  protocols into a solution called [YesID](https://yesidentity.com/){:target="_blank"}.
+  the [OAuth 2.0](https://datatracker.ietf.org/doc/html/rfc6749){:target="_blank"}, [OpenID Connect](https://openid.net/specs/openid-connect-core-1_0.html){:target="_blank"} and the [FAPI-CIBA](https://openid.net/specs/openid-financial-api-ciba-wd-02.html){:target="_blank"} profile into a solution
+  called [Yes Identity](https://yesidentity.com/){:target="_blank"}.
