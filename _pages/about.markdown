@@ -12,10 +12,6 @@ permalink: /about/
 
 * I'm passionate about automation and security.
 
-* My favorite learning tool is [O'reilly](https://www.oreilly.com/){:target="_blank"}.
-
-* I consider myself a serial side-project entrepreneur.
-
 * I'm currently building [YES IDENTITY](https://yesidentity.com/){:target="_blank"}. An MFA solution based
   on [OAuth 2.0](https://datatracker.ietf.org/doc/html/rfc6749){:target="_blank"}
   , [OpenID Connect](https://openid.net/specs/openid-connect-core-1_0.html){:target="_blank"} and
