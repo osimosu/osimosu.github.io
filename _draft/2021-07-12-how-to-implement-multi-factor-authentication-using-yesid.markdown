@@ -5,7 +5,7 @@ date:   "2021-07-12 13:30:00 -0500"
 categories: openid, oauth, ciba, identity, mfa, passwordless
 ---
 This post describes how to implement Multi-factor authentication using [YES IDENTITY](https://yesidentity.com){:target="_blank"
-}, a strong authentication solution I developed.
+}.
 
 The [Demo application](https://demo.yesidentity.com){:target="_blank"} is a Java and Angular application with a
 companion Android app. After logging in with username and password, users receive an authentication prompt when they
