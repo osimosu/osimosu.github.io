@@ -4,9 +4,9 @@ title: "About"
 permalink: /about/
 ---
 
-* I have a Bachelor's degree in Network Security(Sweden) and a Master's degree in Big Data(Scotland).
+* I have a B.Sc. in Network Security and an M.Sc. in Big Data(Scotland).
 
-* My strength is versatility; ability to dabble into unknown waters. I've done Networking, DevOps, Backend, Frontend and many more things.
+* My strength is versatility, that is, ability to dive into areas outside my specialization. I've done Networking, DevOps, Backend, Frontend and many more things.
 
 * I'm passionate about security and currently building [YES IDENTITY](https://yesidentity.com/){:target="_blank"}. An MFA solution based
   on [OAuth 2.0](https://datatracker.ietf.org/doc/html/rfc6749){:target="_blank"}
