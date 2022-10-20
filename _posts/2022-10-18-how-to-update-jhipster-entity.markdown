@@ -19,9 +19,9 @@ Typically, to update a jhipster entity, you do the following:
 - Liquibase generates an empty `alterSequence` changeset when using PostgreSQL. [This is a known bug](https://github.com/liquibase/liquibase/issues/2223){:target="_blank"} . You can manually delete it from the changelog.
 
 ```xml
-    <changeSet author="eosimosu (generated)" id="1666299093643-1">
-        <alterSequence sequenceName="sequence_generator"/>
-    </changeSet>
+<changeSet author="eosimosu (generated)" id="1666299093643-1">
+    <alterSequence sequenceName="sequence_generator"/>
+</changeSet>
 ```
 
 Done!
