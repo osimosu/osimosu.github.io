@@ -7,7 +7,9 @@ categories: jhipster, entity, docker
 
 [How to modify existing entity generated with jhipster?](https://stackoverflow.com/questions/28216307/how-to-modify-existing-entity-generated-with-jhipster){:target="_blank"}
 
-[JHipster](https://www.jhipster.tech/){:target="_blank"} uses Liquibase to manage database updates. The liquibase [diff](https://docs.liquibase.com/commands/diff/diff.html){:target="_blank"} command can be used detect a drift between your entities and database schema.
+[JHipster](https://www.jhipster.tech/){:target="_blank"} uses Liquibase to manage database updates. It uses [liquibase-hibernate5](https://github.com/liquibase/liquibase-hibernate){:target="_blank"}, a liquibase extension for hibernate integration for generating changesets based on changed hibernate mapping files.
+
+It use [liquibase:diff](https://docs.liquibase.com/commands/diff/diff.html) maven task{:target="_blank"} to detect a drift between your entities and database structure.
 
 Typically, to update a jhipster entity, you do the following:
 - Make sure your database is running, then start the application to generate your tables.
