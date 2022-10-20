@@ -11,7 +11,7 @@ categories: jhipster, entity, docker
 
 Typically, to update a jhipster entity, you do the following:
 - Make sure your database is running, then start the application to generate your tables.
-- Stop the application but leave the database is running. The reason for this is that you want to keep the current state of your enities in database so that you can compare it with any new changes to your entities. 
+- Stop the application but leave the database is running. The reason is that you first want to persist your enities state in the database so that you can compare it with any new changes to your entities.
 - Make changes to your jdl file, then re-import it to re-generate your entities. Don't overwrite any changelog (.xml files or .csv fake-data files) as they are immutable and their checksums are persisted.
 - Run the command `./mvnw clean compile liquibase:diff` to compile your and generate a new changelog (difference between your entities and database). A new changelog will be generate at `src/main/resources/config/liquibase/changelog`
 . Review it and add it to `src/main/resources/config/liquibase/master.xml`
