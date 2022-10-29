@@ -5,7 +5,7 @@ date:   "2022-10-18 15:39:00 -0500"
 categories: jhipster, entity, docker
 ---
 
-[How to modify existing entity generated with jhipster?](https://stackoverflow.com/questions/28216307/how-to-modify-existing-entity-generated-with-jhipster){:target="_blank"}
+This question was asked on [Stackoverflow](https://stackoverflow.com/questions/28216307/how-to-modify-existing-entity-generated-with-jhipster){:target="_blank"}.
 
 [JHipster](https://www.jhipster.tech/){:target="_blank"} uses Liquibase to manage database updates. It uses the [liquibase-hibernate5](https://github.com/liquibase/liquibase-hibernate){:target="_blank"} plugin, a liquibase extension for hibernate integration.
 
