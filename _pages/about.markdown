@@ -4,7 +4,7 @@ title: "About"
 permalink: /about/
 ---
 
-* I have a B.Sc. in Computer Science (Sweden) and an M.Sc. in Big Data(Scotland).
+* I have a B.Sc. in Computer Science(Sweden) and an M.Sc. in Big Data(Scotland).
 
 * My strength is versatility, that is, ability to dive into areas outside my specialization. I've done Networking, DevOps, Backend, Frontend and many more things.
 
