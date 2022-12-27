@@ -14,19 +14,22 @@ In other to be able to share common code among the different versions of site, I
 ```
 git clone git@github.com:osimosu/shared_project.git new_project
 ```
- - Change the remote name from origin to upstream. The `shared_project` becomes the upstream where we pull updates from:
- ```
+
+- Change the remote name from origin to upstream. The `shared_project` becomes the upstream where we pull updates from:
+```
 cd new_project/
 git remote -v
 git remote rename origin upstream
 ```
+
 - Disable ability to push code to shared_project(upstream):
 ```
 git remote set-url --push upstream no_push
 ```
+
 - Create the downstream repo in Github and add origin remote:
  ```
  git remote add origin git@github.com:osimosu/new_project.git
- git branch -M main
- git push -u origin main
+git branch -M main
+git push -u origin main
 ```
