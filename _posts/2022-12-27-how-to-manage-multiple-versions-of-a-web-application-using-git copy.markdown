@@ -10,12 +10,12 @@ Different versions of Trainingpass(an hobby project) are deployed to different s
 In other to be able to share common code among the different versions of site, I've created a Git project that becomes a template whereby new projects can be generated from. Most development would also happen on template repo and changes will be pulled into the generated projects. This approach also allows for custom changes (e.g background image) to be implemented that is specific only to the generated projects/country.
 
 
-- Clone the template to a new project:
+- Clone the template project to a new project:
 ```bash
 git clone git@github.com:osimosu/template_project.git new_project
 ```
 
-- Change the remote name from origin to upstream. The `template_project` becomes the upstream where we pull updates from:
+- Change the remote name from origin to `upstream`. The `template_project` becomes the upstream where we pull updates from:
 ```bash
 cd new_project/
 git remote -v

@@ -1,6 +1,6 @@
 ---
 layout: "post"
-title:  "How to Deploy a Simple Webapp to AWS Lightsail Using Docker and ECR"
+title:  "How to deploy a simple webapp to AWS Lightsail using Docker and ECR"
 date:   "2021-07-04 13:30:00 -0500"
 categories: aws, lightsail, docker, docker-compose, ecr, bash
 ---
