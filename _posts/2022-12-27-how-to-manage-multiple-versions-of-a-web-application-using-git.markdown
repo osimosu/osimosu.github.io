@@ -5,7 +5,7 @@ date:   "2022-12-27 15:39:00 -0500"
 categories: git, template, downstream, upstream
 ---
 
-Different versions of Trainingpass(an hobby project) are deployed to different subdomains for supported countries e.g [https://se.trainingpass.com](https://se.trainingpass.com) for Sweden, [https://dk.trainingpass.com](https://dk.trainingpass.com) for Denmark etc. Visiting the default site i.e [https://trainingpass.com](https://trainingpass.com) would redirect you to the right country website (based on your IP address).
+Different versions of Trainingpass(an hobby project) are deployed to different subdomains for supported countries e.g [https://se.trainingpass.com](https://se.trainingpass.com) for Sweden, [https://dk.trainingpass.com](https://dk.trainingpass.com) for Denmark etc. Visiting the default site i.e [https://trainingpass.com](https://trainingpass.com) would redirect you to your country website. This is determined from the user's IP address.
 
 In other to be able to share common code among the different versions of site, I've created a Git project that becomes a template whereby new projects can be generated from. Most development would also happen on template repo and changes will be pulled into the generated projects. This approach also allows for custom changes (e.g background image) to be implemented that is specific only to the generated projects/country.
 
@@ -24,6 +24,7 @@ git remote rename origin upstream
 
 - Disable ability to push code to template_project(upstream):
 ```bash
+cd new_project/
 git remote set-url --push upstream no_push
 ```
 
@@ -37,5 +38,12 @@ git push -u origin main
 
 - To pull changes from the template_project into generated project, you run:
  ```bash
+ cd new_project/
 git pull upstream main
+```
+
+- To pull changes from the origin, you run:
+ ```bash
+ cd new_project/
+git pull 
 ```
