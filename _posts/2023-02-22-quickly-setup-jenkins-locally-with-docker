@@ -34,6 +34,7 @@ docker container run -d \
 ```
 
 `-p` binds 8080 of the container port to your host port.
+
 `-v` mounts /var/jenkins_home in the container to your host volume created earlier.
 
 
