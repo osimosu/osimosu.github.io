@@ -43,7 +43,7 @@ docker container run -d \
 </figure>
 
 #### Step 1. Retrieve jenkins password
-As part of initial setup, you need to retrieve the password from the container log.
+As part of initial setup, you need to retrieve the password from the container path below.
 
 ```bash
 docker container exec \
