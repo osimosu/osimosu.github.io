@@ -37,7 +37,6 @@ docker container run -d \
 
 `-v` mounts /var/jenkins_home in the container to your host volume created earlier.
 
-
 <figure>
   <img src="{{site.url}}/img/jenkins.webp" alt="Jenkins"/>
 </figure>
