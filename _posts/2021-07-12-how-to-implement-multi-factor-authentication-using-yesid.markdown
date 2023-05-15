@@ -1,13 +1,13 @@
 --- 
 layout: "post"
-title:  "How to Implement Multi-Factor Authentication Using YES IDENTITY"
-date:   "2021-07-12 13:30:00 -0500"
+title:  "How to Implement Multi-Factor Authentication Using Authorize.ID"
+date:   "2023-02-12 13:30:00 -0500"
 categories: openid, oauth, ciba, identity, mfa, passwordless
 ---
-This post describes how to implement Multi-factor authentication using [YES IDENTITY](https://yesidentity.com){:target="_blank"
+This post describes how to implement Multi-factor authentication using [Authorize.ID](https://authorize.id){:target="_blank"
 }.
 
-The [Demo application](https://demo.yesidentity.com){:target="_blank"} is a Java and Angular application with a
+The demo app is a Java and Angular application with a
 companion Android app. After logging in with username and password, users receive an authentication prompt when they
 open their app, then they either approve (and authenticate using biometrics) or deny the request. It can be customized
 so that only users with certain roles or who have enabled MFA receives the prompt.
@@ -20,8 +20,8 @@ In future posts, I'd describe how to implement passwordless authentication and t
 
 # Introduction
 
-YES IDENTITY enables you to easily and quickly implement multi-factor, passwordless authentication and transaction signing in
-your application using biometrics. Unlike similar solutions relying on closed protocols and implementations, YES IDENTITY is
+Authorize.ID enables you to easily and quickly implement multi-factor, passwordless authentication and transaction signing in
+your application using biometrics. Unlike similar solutions relying on closed protocols and implementations, Authorize.ID is
 based on the [OAuth 2.0](https://datatracker.ietf.org/doc/html/rfc6749){:target="_blank"}
 , [OpenID Connect](https://openid.net/specs/openid-connect-core-1_0.html){:target="_blank"}
 and [CIBA](https://openid.net/specs/openid-client-initiated-backchannel-authentication-core-1_0.html){:target="_blank"}
@@ -30,7 +30,7 @@ cleartext and prone to attacks), it is based
 on [Public key cryptography](https://en.wikipedia.org/wiki/Public-key_cryptography){:target="_blank"} and biometrics (
 currently considered the most bulletproof form of MFA).
 
-For those familiar with [BankID](https://www.bankid.com/){:target="_blank"}, YES IDENTITY is essentially your own private
+For those familiar with [BankID](https://www.bankid.com/){:target="_blank"}, Authorize.ID is essentially your own private
 authentication embedded in your mobile app for seamless user experience. The solution is API-based so you have complete
 flexibility on how you design the authentication prompt in your app or the kind of requests you prompt users to
 authorize. A major drawback with using BankID (as a form of MFA) is its reliance on Swedish social security numbers (
@@ -90,23 +90,23 @@ With multi-factor authentication, additional factors are required to verify user
 has (e.g smartphone, a key, bank card etc), something the user is (e.g fingerprint, voice etc.) and/or somewhere the
 user is  (e.g GPS coordinates).
 
-Below is a simplified diagram of how YES IDENTITY enables multi-factor Authentication.
+Below is a simplified diagram of how Authorize.ID enables multi-factor Authentication.
 
 ![Multi-factor authentication demo](/img/mfa.png)
 
 1. A user initiates a login using their credentials typically username and password. In your backend, you initiate an
    Authentication request to
-   YES IDENTITY's [Authorize Endpoint](https://datatracker.ietf.org/doc/html/rfc6749#section-3.1){:target="_blank"} using a
-   user identifier. YES IDENTITY's private endpoints are protected
+   Authorize.ID's [Authorize Endpoint](https://datatracker.ietf.org/doc/html/rfc6749#section-3.1){:target="_blank"} using a
+   user identifier. Authorize.ID's private endpoints are protected
    using [Oauth 2.0 Client Authentication methods](https://darutk.medium.com/oauth-2-0-client-authentication-4b5f929305d4){:target="_blank"}
    . A transaction ID (auth_req_id) with polling interval and expiration date is returned in the response to the client
-   i.e your backend, then passed to the browser. YES IDENTITY also supports `PING` mode whereby your backend is notified via a callback when the user has
+   i.e your backend, then passed to the browser. Authorize.ID also supports `PING` mode whereby your backend is notified via a callback when the user has
    acted on the request.
 
 2. The client uses the transaction ID (auth_req_id) to check the status of the Authentication request. If approved, a
    bearer token is returned in the response body, and the browser can then use that to access protected resources.
 
-3. The device/app is notified of an Authentication request. YES IDENTITY can notify the device on your behalf, or you can
+3. The device/app is notified of an Authentication request. Authorize.ID can notify the device on your behalf, or you can
    notify the device yourself.
 
 4. The device retrieves the Authentication request.
@@ -116,7 +116,7 @@ Below is a simplified diagram of how YES IDENTITY enables multi-factor Authentic
 
 # Implementation
 
-Finally, let's implement Multi-factor authentication using YES IDENTITY :)
+Finally, let's implement Multi-factor authentication using Authorize.ID :)
 
 #### Step 1. Request Demo
 
@@ -125,7 +125,7 @@ documentation.
 
 #### Step 2. Create Client
 
-Create a Client in the Dashboard to obtain credentials to authenticate with YES IDENTITY's API. You can
+Create a Client in the Dashboard to obtain credentials to authenticate with Authorize.ID's API. You can
 choose `client_secret_basic`, `client_secret_post` or `private_key_jwt`
 authentication
 methods. [Financial-grade API (FAPI)](https://darutk.medium.com/financial-grade-api-fapi-explained-by-an-implementer-d09fcf2ff932){:target="_blank"}
@@ -134,7 +134,7 @@ to authenticate the client.
 
 #### Step 3. Register Device
 
-When a user logs in to their **trusted** device for the first time, the device is registered with YES IDENTITY's backend using
+When a user logs in to their **trusted** device for the first time, the device is registered with Authorize.ID's backend using
 the `Devices API`. The API expects a JWT token (in the Authorization header) signed using the client's private key
 obtained from **step 1**.
 
@@ -310,7 +310,7 @@ For non-biometric authentication, this value must be set to false.
 For the Demo App, I have implemented two endpoints.
 
 The first endpoint verifies the user's credentials and returns a transaction ID (auth_req_id), interval for polling and
-expiration date in the response body to the browser. In parallel, if configured, YES IDENTITY notifies your device/app of a
+expiration date in the response body to the browser. In parallel, if configured, Authorize.ID notifies your device/app of a
 pending Authentication request.
 
 ```java
@@ -412,7 +412,7 @@ public class UserJWTController {
 }
 ```
 
-While the request is pending (not yet approved by the user), YES IDENTITY would return a json body with
+While the request is pending (not yet approved by the user), Authorize.ID would return a json body with
 error_message `authorization_pending` and HTTP 400 Bad Request response status code. The browser should poll at the
 specified interval until the error_message is no longer authorization_pending.
 
@@ -447,10 +447,10 @@ export class AuthServerProvider {
 Once your device/app has received the notification, it should retrieve the Authentication request from your endpoint and
 displays it to the user.
 A [BottomSheetDialog](https://developer.android.com/reference/com/google/android/material/bottomsheet/BottomSheetDialog){:target="_blank"}
-is used in the demo app. Your endpoint should proxy this request securely to YES IDENTITY's `Authentication Requests API`. Like
+is used in the demo app. Your endpoint should proxy this request securely to Authorize.ID's `Authentication Requests API`. Like
 the `Devices API`, it is protected and expects a JWT token signed using the client's private key.
 
-Depending on your security requirements, YES IDENTITY supports approving Authentication requests on the device using biometric
+Depending on your security requirements, Authorize.ID supports approving Authentication requests on the device using biometric
 and non-biometric protected cryptographic keys. Either way you need
 a [Signature](https://docs.oracle.com/javase/7/docs/api/java/security/Signature.html) object that is used to sign a JWT
 that is sent in a `request` parameter to the `approve` endpoint.
