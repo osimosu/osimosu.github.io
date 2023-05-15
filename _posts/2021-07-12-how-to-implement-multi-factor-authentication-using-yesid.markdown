@@ -7,10 +7,9 @@ categories: openid, oauth, ciba, identity, mfa, passwordless
 This post describes how to implement Multi-factor authentication using [Authorize.ID](https://authorize.id){:target="_blank"
 }.
 
-The demo app is a Java and Angular application with a
-companion Android app. After logging in with username and password, users receive an authentication prompt when they
-open their app, then they either approve (and authenticate using biometrics) or deny the request. It can be customized
-so that only users with certain roles or who have enabled MFA receives the prompt.
+
+In order to integrate with Authorize,ID, we have implemented a demo application whereby when users login with username and password, they receive an authentication prompt on their mobile device when they
+open their app, then they either approve and authenticat the login request. It can be customized so that only users with certain roles or who have enabled MFA receives the prompt. If can also be configured to allow users to choose between pin and biometrics when they are approving requests.
 
 <figure>
   <img src="{{site.url}}/img/demo.gif" alt="Demo App"/>
@@ -20,8 +19,9 @@ In future posts, I'd describe how to implement passwordless authentication and t
 
 # Introduction
 
-Authorize.ID enables you to easily and quickly implement multi-factor, passwordless authentication and transaction signing in
-your application using biometrics. Unlike similar solutions relying on closed protocols and implementations, Authorize.ID is
+Authorize.ID enables you to easily and quickly implement Strong customer authentication (SCA) into your solutions. SCA is defined as “an authentication based on the use of two or more elements categorised as **knowledge** (something only the user knows), **possession** (something only the user possesses) and **inherence** (something the user is). In 2019, SCA became a requirement of the EU Revised Directive on Payment Services (PSD2) for payment service providers within the European Economic Area. The requirement ensures that electronic payments are performed with multi-factor authentication, to increase the security of electronic payments.
+
+Unlike similar solutions relying on closed protocols and implementations, Authorize.ID is
 based on the [OAuth 2.0](https://datatracker.ietf.org/doc/html/rfc6749){:target="_blank"}
 , [OpenID Connect](https://openid.net/specs/openid-connect-core-1_0.html){:target="_blank"}
 and [CIBA](https://openid.net/specs/openid-client-initiated-backchannel-authentication-core-1_0.html){:target="_blank"}
