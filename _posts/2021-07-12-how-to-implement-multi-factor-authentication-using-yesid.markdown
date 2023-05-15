@@ -8,14 +8,14 @@ This post describes how to implement Multi-factor authentication using [Authoriz
 }.
 
 
-In order to integrate with Authorize,ID, we have implemented a demo application whereby when users login with username and password, they receive an authentication prompt on their mobile device when they
-open their app, then they either approve and authenticat the login request. It can be customized so that only users with certain roles or who have enabled MFA receives the prompt. If can also be configured to allow users to choose between pin and biometrics when they are approving requests.
+In order to integrate with Authorize.ID, we have implemented a demo fintech app (web and mobile app) appication whereby when users login with username and password, they receive an authentication prompt on the mobile app whether they want to approve or deny the login request.
+It can be customized so that only users with certain roles or who have enabled strong authentication receives the prompt. If can also be configured to allow users to choose between pin and biometrics when they are approving requests.
 
 <figure>
   <img src="{{site.url}}/img/demo.gif" alt="Demo App"/>
 </figure>
 
-In future posts, I'd describe how to implement passwordless authentication and transaction signing using the solution.
+In future posts, I'd describe how to implement passwordless authentication and transaction signing (e.g approve payments) using Authorize.ID.
 
 # Introduction
 
