@@ -8,7 +8,8 @@ This post describes how to implement Multi-factor authentication using [Authoriz
 }.
 
 
-In order to integrate with Authorize.ID, we have implemented a demo fintech app (web and mobile app) appication whereby when users login with username and password, they receive an authentication prompt on the mobile app whether they want to approve or deny the login request.
+In order to integrate with Authorize.ID, we have implemented a demo fintech app (web and mobile app) whereby when users login with username and password, they receive an authentication prompt on the mobile app to approve or deny the login request.
+
 It can be customized so that only users with certain roles or who have enabled strong authentication receives the prompt. If can also be configured to allow users to choose between pin and biometrics when they are approving requests.
 
 <figure>
