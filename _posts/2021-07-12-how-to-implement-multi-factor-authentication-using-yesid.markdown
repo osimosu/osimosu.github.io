@@ -8,9 +8,9 @@ This post describes how to implement Multi-factor authentication using [Authoriz
 }.
 
 
-In order to integrate with Authorize.ID, we have implemented a demo fintech app (web and mobile app) whereby when users login with username and password, they receive an authentication prompt on the mobile app to approve or deny the login request.
+In order to integrate with Authorize.ID, we have implemented a fictitious fintech solution (web and mobile app) whereby when users login with username and password, they receive an authentication prompt on the mobile app to approve or deny the login request.
 
-It can be customized so that only users with certain roles or who have enabled strong authentication receives the prompt. If can also be configured to allow users to choose between pin and biometrics when they are approving requests.
+It can be customized so that only users with certain roles or who have enabled strong authentication receives the prompt. It can also be configured to allow users to choose between pin and biometrics when they are approving requests.
 
 <figure>
   <img src="{{site.url}}/img/demo.gif" alt="Demo App"/>
@@ -28,7 +28,7 @@ based on the [OAuth 2.0](https://datatracker.ietf.org/doc/html/rfc6749){:target=
 and [CIBA](https://openid.net/specs/openid-client-initiated-backchannel-authentication-core-1_0.html){:target="_blank"}
 open standards. Unlike many forms of MFA such one-time codes (via SMS) or voice calls (which are transmitted in
 cleartext and prone to attacks), it is based
-on [Public key cryptography](https://en.wikipedia.org/wiki/Public-key_cryptography){:target="_blank"} and biometrics (
+on [Public key cryptography](https://en.wikipedia.org/wiki/Public-key_cryptography){:target="_blank"} and supports biometrics (
 currently considered the most bulletproof form of MFA).
 
 For those familiar with [BankID](https://www.bankid.com/){:target="_blank"}, Authorize.ID is essentially your own private
@@ -121,7 +121,7 @@ Finally, let's implement Multi-factor authentication using Authorize.ID :)
 
 #### Step 1. Request Demo
 
-Email [request@demo.yesidentity.com](mailto:request@demo.yesidentity.com) to request access to the dashboard and API
+Email [info@authorize.id](mailto:info@authorize.id) to request access to the dashboard and API
 documentation.
 
 #### Step 2. Create Client
@@ -487,7 +487,7 @@ public class ConsentDialog extends BottomSheetDialogFragment {
                                     Signature signature = result.getCryptoObject().getSignature(); // Obtain Signature from CryptoObject
                                     try {
                                         String bearerToken = createBearerToken(signature);  // create signed jwt
-                                        yesidentityApi
+                                        authorizeIDApi
                                                 .approveAuthRequest("Bearer " + bearerToken, authRequestDTO.getId())
                                                 .enqueue(
                                                         new Callback<Void>() {
